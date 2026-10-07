@@ -1,0 +1,69 @@
+{
+  "note": "这些历史案例素材未公开。替换图片时同时更新构图坐标、裁切框和时序，不可仅凑齐同名文件。",
+  "files": [
+    {
+      "path": "assets-v2/coast-bg.png",
+      "role": "完整背景净底"
+    },
+    {
+      "path": "assets-v2/coast-ship.png",
+      "role": "独立船或交换前人物姿态，RGBA透明切件"
+    },
+    {
+      "path": "assets-v2/exchange-bg.png",
+      "role": "完整背景净底"
+    },
+    {
+      "path": "assets-v2/exchange-left-after.png",
+      "role": "交换后人物持物姿态，RGBA透明切件"
+    },
+    {
+      "path": "assets-v2/exchange-left.png",
+      "role": "独立船或交换前人物姿态，RGBA透明切件"
+    },
+    {
+      "path": "assets-v2/exchange-right-after.png",
+      "role": "交换后人物持物姿态，RGBA透明切件"
+    },
+    {
+      "path": "assets-v2/exchange-right.png",
+      "role": "独立船或交换前人物姿态，RGBA透明切件"
+    },
+    {
+      "path": "assets-v2/harbor-bg.png",
+      "role": "完整背景净底"
+    },
+    {
+      "path": "assets-v2/harbor-ship.png",
+      "role": "独立船或交换前人物姿态，RGBA透明切件"
+    },
+    {
+      "path": "assets-v2/ocean-bg.png",
+      "role": "完整背景净底"
+    },
+    {
+      "path": "assets-v2/ocean-ship.png",
+      "role": "独立船或交换前人物姿态，RGBA透明切件"
+    },
+    {
+      "path": "input/audio.wav",
+      "role": "郑和案例20秒旁白；准确文本和段时间见timeline.js"
+    },
+    {
+      "path": "素材/通勤城市主体-v4.png",
+      "role": "含地面和建筑的中景透明PNG；坐标与build脚本匹配"
+    },
+    {
+      "path": "素材/通勤远楼-v4.png",
+      "role": "远景建筑层，脚本缩放到2700×900"
+    },
+    {
+      "path": "素材/通勤车辆街沿-v4.png",
+      "role": "车辆与街沿分件表，裁切框见case-commute.py"
+    },
+    {
+      "path": "input/original.wav",
+      "role": "通勤4.32秒旁白，自行提供，不附歌曲或私人音频"
+    }
+  ]
+}

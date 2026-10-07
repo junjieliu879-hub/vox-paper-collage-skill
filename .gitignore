@@ -1,0 +1,15 @@
+node_modules/
+__pycache__/
+.venv/
+.env
+.env.*
+*.log
+output/
+预览/
+assets-v2/
+素材/
+input/
+*.mp4
+*.mp3
+*.wav
+*.zip
