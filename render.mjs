@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
-import {pathToFileURL} from 'node:url';
-import {spawn} from 'node:child_process';
+import {pathToFileURL,fileURLToPath} from 'node:url';
+import {spawn,execFileSync} from 'node:child_process';
 import {once} from 'node:events';
 
 const opts={};
@@ -14,6 +14,13 @@ for(const key of ['page','out']) if(!opts[key]) throw Error(`Missing --${key}`);
 const pageFile=path.resolve(opts.page), audioFile=opts.audio?path.resolve(opts.audio):null, out=path.resolve(opts.out);
 if(fs.existsSync(out)) throw Error('Output already exists; use a new filename.');
 for(const f of [pageFile,audioFile].filter(Boolean)) if(!fs.existsSync(f)) throw Error(`Missing file: ${f}`);
+if(opts['asset-group']&&!opts.assets) throw Error('--asset-group requires --assets.');
+if(opts.assets){
+  const checker=path.join(path.dirname(fileURLToPath(import.meta.url)),'verify_assets.py');
+  const args=['-X','utf8',checker,path.resolve(opts.assets)];
+  if(opts['asset-group'])args.push('--group',opts['asset-group']);
+  execFileSync(process.env.VOX_PYTHON||'python',args,{stdio:'inherit'});
+}
 const root=path.dirname(pageFile), width=Number(opts.width||1280), height=width*9/16, fps=Number(opts.fps||30);
 if(!Number.isInteger(width)||!Number.isInteger(height)||width%2||height%2||fps<=0||!Number.isFinite(fps)) throw Error('Use even 16:9 dimensions and positive fps.');
 const candidates=[process.env.CHROME_PATH,'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','/usr/bin/google-chrome','/usr/bin/chromium','/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'];

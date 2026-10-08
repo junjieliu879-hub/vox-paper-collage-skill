@@ -1,69 +1,287 @@
 {
-  "note": "这些历史案例素材未公开。替换图片时同时更新构图坐标、裁切框和时序，不可仅凑齐同名文件。",
+  "note": "这些历史案例素材未公开。替换图片时同时更新构图坐标、裁切框和时序，不可仅凑齐同名文件。 size 为原案例实测画布，不是新视频统一尺寸；更换素材必须先按当前分镜重设构图，再更新这些派生参数。",
   "files": [
     {
       "path": "assets-v2/coast-bg.png",
-      "role": "完整背景净底"
+      "role": "完整背景净底",
+      "group": "zhenghe",
+      "size": [
+        1671,
+        941
+      ],
+      "alpha": "opaque",
+      "crops": {
+        "forewave-source": [
+          0,
+          760,
+          1671,
+          941
+        ]
+      }
     },
     {
       "path": "assets-v2/coast-ship.png",
-      "role": "独立船或交换前人物姿态，RGBA透明切件"
+      "role": "独立船或交换前人物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": "cutout"
     },
     {
       "path": "assets-v2/exchange-bg.png",
-      "role": "完整背景净底"
+      "role": "完整背景净底",
+      "group": "zhenghe",
+      "size": [
+        1672,
+        941
+      ],
+      "alpha": "opaque"
     },
     {
       "path": "assets-v2/exchange-left-after.png",
-      "role": "交换后人物持物姿态，RGBA透明切件"
+      "role": "交换后人物持物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha": "cutout",
+      "same_canvas_as": "assets-v2/exchange-left.png"
     },
     {
       "path": "assets-v2/exchange-left.png",
-      "role": "独立船或交换前人物姿态，RGBA透明切件"
+      "role": "独立船或交换前人物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha": "cutout"
     },
     {
       "path": "assets-v2/exchange-right-after.png",
-      "role": "交换后人物持物姿态，RGBA透明切件"
+      "role": "交换后人物持物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha": "cutout",
+      "same_canvas_as": "assets-v2/exchange-right.png"
     },
     {
       "path": "assets-v2/exchange-right.png",
-      "role": "独立船或交换前人物姿态，RGBA透明切件"
+      "role": "独立船或交换前人物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha": "cutout"
     },
     {
       "path": "assets-v2/harbor-bg.png",
-      "role": "完整背景净底"
+      "role": "完整背景净底",
+      "group": "zhenghe",
+      "size": [
+        1672,
+        941
+      ],
+      "alpha": "opaque",
+      "crops": {
+        "forewave-source": [
+          0,
+          760,
+          1672,
+          941
+        ]
+      }
     },
     {
       "path": "assets-v2/harbor-ship.png",
-      "role": "独立船或交换前人物姿态，RGBA透明切件"
+      "role": "独立船或交换前人物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1413,
+        1113
+      ],
+      "alpha": "cutout"
     },
     {
       "path": "assets-v2/ocean-bg.png",
-      "role": "完整背景净底"
+      "role": "完整背景净底",
+      "group": "zhenghe",
+      "size": [
+        1672,
+        941
+      ],
+      "alpha": "opaque",
+      "crops": {
+        "forewave-source": [
+          0,
+          760,
+          1672,
+          941
+        ]
+      }
     },
     {
       "path": "assets-v2/ocean-ship.png",
-      "role": "独立船或交换前人物姿态，RGBA透明切件"
+      "role": "独立船或交换前人物姿态，RGBA透明切件",
+      "group": "zhenghe",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": "cutout"
     },
     {
       "path": "input/audio.wav",
-      "role": "郑和案例20秒旁白；准确文本和段时间见timeline.js"
+      "role": "郑和案例20秒旁白；准确文本和段时间见timeline.js",
+      "group": "zhenghe",
+      "kind": "audio"
     },
     {
       "path": "素材/通勤城市主体-v4.png",
-      "role": "含地面和建筑的中景透明PNG；坐标与build脚本匹配"
+      "role": "含地面和建筑的中景透明PNG；坐标与build脚本匹配",
+      "group": "commute",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha": "cutout"
     },
     {
       "path": "素材/通勤远楼-v4.png",
-      "role": "远景建筑层，脚本缩放到2700×900"
+      "role": "远景建筑层，脚本缩放到2700×900",
+      "group": "commute",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha": "opaque"
     },
     {
       "path": "素材/通勤车辆街沿-v4.png",
-      "role": "车辆与街沿分件表，裁切框见case-commute.py"
+      "role": "车辆与街沿分件表，裁切框见case-commute.py",
+      "group": "commute",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": "cutout",
+      "crops": {
+        "red": [
+          12,
+          83,
+          765,
+          405
+        ],
+        "green": [
+          790,
+          83,
+          1536,
+          405
+        ],
+        "front": [
+          0,
+          432,
+          1536,
+          1000
+        ]
+      }
     },
     {
       "path": "input/original.wav",
-      "role": "通勤4.32秒旁白，自行提供，不附歌曲或私人音频"
+      "role": "通勤4.32秒旁白，自行提供，不附歌曲或私人音频",
+      "group": "commute",
+      "kind": "audio"
+    }
+  ],
+  "layouts": [
+    {
+      "id": "exchange-before",
+      "group": "zhenghe",
+      "size": [
+        960,
+        540
+      ],
+      "note": "静态重组示意，非编码帧；前后态使用同一放置框，视觉接触及姿态连续性待观察。",
+      "layers": [
+        {
+          "id": "background",
+          "path": "assets-v2/exchange-bg.png",
+          "box": [
+            0,
+            0,
+            960,
+            540
+          ]
+        },
+        {
+          "id": "left",
+          "path": "assets-v2/exchange-left.png",
+          "box": [
+            232,
+            93,
+            286,
+            429
+          ]
+        },
+        {
+          "id": "right",
+          "path": "assets-v2/exchange-right.png",
+          "box": [
+            476,
+            94,
+            285,
+            428
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exchange-after",
+      "group": "zhenghe",
+      "size": [
+        960,
+        540
+      ],
+      "note": "静态重组示意，非编码帧；前后态使用同一放置框，视觉接触及姿态连续性待观察。",
+      "layers": [
+        {
+          "id": "background",
+          "path": "assets-v2/exchange-bg.png",
+          "box": [
+            0,
+            0,
+            960,
+            540
+          ]
+        },
+        {
+          "id": "left",
+          "path": "assets-v2/exchange-left-after.png",
+          "box": [
+            232,
+            93,
+            286,
+            429
+          ]
+        },
+        {
+          "id": "right",
+          "path": "assets-v2/exchange-right-after.png",
+          "box": [
+            476,
+            94,
+            285,
+            428
+          ]
+        }
+      ]
     }
   ]
 }

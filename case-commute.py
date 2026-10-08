@@ -5,7 +5,10 @@ from PIL import Image,ImageDraw,ImageFilter
 from PIL import ImageFont
 import os
 from functools import lru_cache
+from verify_assets import main as check_assets
 P=Path(__file__).resolve().parent; A=P/'素材'; O=P/'预览'
+if __name__=='__main__':
+    if check_assets([str(P/'ASSETS.json'),'--group','commute']): raise SystemExit(1)
 O.mkdir(exist_ok=True)
 W,H,FPS=1280,720,25; L=Image.Resampling.LANCZOS
 def ease(e,p):

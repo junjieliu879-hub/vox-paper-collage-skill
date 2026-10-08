@@ -26,6 +26,7 @@
 | 无外部素材机制演示 | [demo.html](demo.html) |
 | 郑和剪纸与通勤视差案例代码 | [case-zhenghe.html](case-zhenghe.html)、[case-commute.py](case-commute.py) |
 | 案例需要的素材及角色 | [ASSETS.json](ASSETS.json) |
+| 尺寸、真实透明、裁切与静态对齐检查 | [verify_assets.py](verify_assets.py) |
 | 候选转写、编码检查 | [transcribe.py](transcribe.py)、[verify_video.py](verify_video.py) |
 | 验证范围 | [VALIDATION.md](VALIDATION.md) |
 
@@ -50,13 +51,30 @@ node render.mjs --page demo.html --out output/demo-new.mp4
 
 打开 `demo.html` 可暂停和拖动时间；代码遵守 `window.DUR`、`window.READY`、`window.render(t)` 的取帧接口。可见纹理固定在物件上，前中后景与主体分别运动。它只演示机制，不代表真实项目的复杂版画美术质量。
 
-准备 ASSETS.json 所列的自有素材后，可以运行历史案例代码：
+准备 ASSETS.json 所列的自有素材后，可以运行历史案例代码。图片检查复用现有 Pillow 依赖；机制 demo 不需要它：
 
 ```sh
-node render.mjs --page case-zhenghe.html --audio input/audio.wav --out output/zhenghe.mp4
 python -m pip install -r requirements.txt
+node render.mjs --page case-zhenghe.html --audio input/audio.wav --assets ASSETS.json --asset-group zhenghe --out output/zhenghe.mp4
 python case-commute.py --render
 ```
+
+### 素材检查与对齐预览
+
+郑和渲染命令的 `--assets` 会在取帧前检查图片；通勤案例启动时自动检查自己的素材组。无需为正常渲染另外重复单跑检查。新项目可使用自己的派生素材清单与分组；不带 `--assets` 的原有页面和纯代码 demo 仍可运行。Python 不在默认路径时，设置 `VOX_PYTHON` 为实际解释器路径。
+
+需要定位素材问题或查看静态重组时，单独运行：
+
+```sh
+python verify_assets.py ASSETS.json --group zhenghe --preview output/assets-review-v1
+python verify_assets.py ASSETS.json --group commute
+```
+
+文件缺失、尺寸不符、假透明（全不透明切件）、全透明空图、净底漏透明、裁切越界/裁空、前后姿态画布不一致会返回失败。声明了接触点时，也检查按放置框变换后的静态点距离。预览使用浅/深底且拒绝覆盖旧图；`--root` 可指定图片所在目录。
+
+原案例尺寸已经实测填入 ASSETS.json。新主题先按唯一分镜确定实际素材和构图，再派生清单，不把案例尺寸当统一规格。字段与对齐方法见 [VISUAL_GUIDE.md](VISUAL_GUIDE.md#素材数值检查与静态重组)。检查通过不代表净底无残影、接触点选对或运动自然；没有布局或接触点会明确提示待查，不编造自动视觉验收。
+
+检查脚本的回归测试：`python -m unittest test_verify_assets`。
 
 仅当没有可靠转写时安装可选依赖：
 
